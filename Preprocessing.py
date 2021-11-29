@@ -1,21 +1,21 @@
 # Get/Download Dataset
 # Import Libraries
-# Import Data Set into memory objects
-# Fill/Handle Missing Data (if there is missing data)
+# Import DataSets Set into memory objects
+# Fill/Handle Missing DataSets (if there is missing data)
 # Make the data Categorical --> converting text values to numeric -- categorical 1,2,3 -OR- one hot encoding
 # Split data into Training and Test sets --> X_train, X_test, y_train, y_test
 # Feature Scaling --> bringing all features values in comparable ranges say (0,1)
-# Data Processing --> Good to go for data processing
+# DataSets Processing --> Good to go for data processing
 
 import numpy as np
 import pandas as pd
 
-dataset = pd.read_csv('Data/heart.csv')
+dataset = pd.read_csv('DataSets/heart.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 13].values
 
-print('Displaying Data for X \n', X)
-print('\n Displaying Data for y \n', y)
+print('Displaying DataSets for X \n', X)
+print('\n Displaying DataSets for y \n', y)
 
 # dealing with the missing values
 # Imputer class has been deprecated in newer versions so better use SimpleImputer
@@ -27,26 +27,26 @@ imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 imputer = imputer.fit(X[:, 1:13])
 X[:, 1:13] = imputer.transform(X[:, 1:13])
 print('Filling the value using Mean method: \n')
-print('Displaying Data for X \n', X)
-print('\n Displaying Data for y \n', y)
+print('Displaying DataSets for X \n', X)
+print('\n Displaying DataSets for y \n', y)
 
 imputer = SimpleImputer(missing_values=np.nan, strategy='median')
 imputer = imputer.fit(X[:, 1:13])
 print('\n Splitting the Values In X \n')
-print('Displaying Data for X \n', X)
+print('Displaying DataSets for X \n', X)
 X[:, 1:13] = imputer.transform(X[:, 1:13])
 print('Filling the value using Median method: \n')
-print('Displaying Data for X \n', X)
-print('\n Displaying Data for y \n', y)
+print('Displaying DataSets for X \n', X)
+print('\n Displaying DataSets for y \n', y)
 
 imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
 imputer = imputer.fit(X[:, 1:13])
 print(' Splitting the Values In X \n')
-print(' Displaying Data for X \n', X)
+print(' Displaying DataSets for X \n', X)
 X[:, 1:13] = imputer.transform(X[:, 1:13])
 print('Filling the value using Most Frequent method: \n')
-print(' Displaying Data for X \n', X)
-print('\n Displaying Data for y \n', y)
+print(' Displaying DataSets for X \n', X)
+print('\n Displaying DataSets for y \n', y)
 
 # Encoding categorical data
 
@@ -54,16 +54,16 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 labelEncoder_X = LabelEncoder()
 X[:, 0] = labelEncoder_X.fit_transform(X[:, 0])
-print('\n Displaying Data in X after Encoding the first column \n', X)
+print('\n Displaying DataSets in X after Encoding the first column \n', X)
 
 # Thus, we should also use OneHotEncoding by adding dummy columns as per number of distinct values in column country
 onehotencoder = OneHotEncoder()
 X = onehotencoder.fit_transform(X).toarray()
 labelEncoder_y = LabelEncoder()
 y = labelEncoder_y.fit_transform(y)
-print('\n Data After Encoding and Sorting the column \n')
-print('Displaying Data for X \n', X)
-print('\n Displaying Data for y \n', y)
+print('\n DataSets After Encoding and Sorting the column \n')
+print('Displaying DataSets for X \n', X)
+print('\n Displaying DataSets for y \n', y)
 
 
 # Splitting data set into training and test sets

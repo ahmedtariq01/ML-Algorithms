@@ -3,7 +3,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-df = pd.read_csv('Data/kc_house_data.csv')
+df = pd.read_csv('DataSets/kc_house_data.csv')
 df.head(5)
 X = df.drop('price', axis=1)
 y = df.price
