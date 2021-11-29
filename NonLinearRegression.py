@@ -3,10 +3,10 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-df = pd.read_csv('DataSets/kc_house_data.csv')
-df.head(5)
-X = df.drop('price', axis=1)
-y = df.price
+df = pd.read_csv('DataSets/housing.csv')
+df.head(10)
+X = df.drop('median_house_value', axis=1)
+y = df.median_house_value
 y.head(5)
 
 import statsmodels.regression.linear_model as sm
