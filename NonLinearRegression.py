@@ -32,6 +32,8 @@ linear_model = LinearRegression()
 linear_model.fit(x_train, y_train)
 linear_model.score(x_test, y_test)
 
+#  PolynomialRegression
+#  Degree 2
 from sklearn.preprocessing import PolynomialFeatures
 
 poly_reg_2 = PolynomialFeatures(degree=2)
@@ -45,6 +47,7 @@ len(y_train)
 poly_reg = LinearRegression()
 poly_reg.fit(x_train, y_train)
 poly_reg.score(x_test, y_test)
+#  Degree 3
 poly_reg_3 = PolynomialFeatures(degree=3)
 X_poly_3 = poly_reg_2.fit_transform(X_simple_linear_regression)
 
